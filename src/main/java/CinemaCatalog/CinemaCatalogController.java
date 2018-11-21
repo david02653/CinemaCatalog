@@ -21,24 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class CinemaCatalogController {
 	
-	@RequestMapping("/hello")
-	public ModelAndView hello() {
-		return new ModelAndView("hello"); // 根據view resolver mapping至hello.jsp
-	}
+	@RequestMapping("/")
+    public String index() 
+    {
+        return "success";
+    }
 	
 	
 	@RequestMapping(value = "getCinemaCatalog", method = RequestMethod.GET)
     public String getCinemaCatalog(@RequestParam("userID") String userID)
     {
     	return CinemaCatalog.getCinemaCatalog(userID);
-    }
-    
-    @RequestMapping("/test") 
-    void test(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException 
-    {
-    	RequestDispatcher view;
-    	view = request.getRequestDispatcher("page.html");
-		view.forward(request, response);
     }
 	
 }
