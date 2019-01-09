@@ -70,7 +70,7 @@ public class CinemaCatalogController {
 //            mongoDatabase.createCollection("test");
 //            System.out.println("集合建立成功");
 //選擇集合
-            MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
+            MongoCollection collection = mongoDatabase.getCollection("Movie");
 			
 			
 			
