@@ -57,7 +57,7 @@ public class CinemaCatalogController {
             
             MongoClientSettings settings = MongoClientSettings.builder()
                     .credential(credential)
-                    .applyToSslSettings(builder -> builder.enabled(true))
+                    .applyToSslSettings(builder -> builder.enabled(false))
                     .applyToClusterSettings(builder -> 
                         builder.hosts(Arrays.asList(new ServerAddress("140.121.196.23", 4118))))
                     .build();
@@ -73,7 +73,6 @@ public class CinemaCatalogController {
             MongoCollection collection = mongoDatabase.getCollection("Movie");
             
             
-            //System.out.println("Connect to database successfully");
             //return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson();
             return "Connect to database successfully:\n" + collection.find();
             
