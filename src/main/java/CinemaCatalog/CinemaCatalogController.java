@@ -54,12 +54,12 @@ public class CinemaCatalogController {
             MongoCredential credential = MongoCredential.createScramSha1Credential("cinema", "Movies", "cinema".toCharArray());
             /*List<MongoCredential> credentials = new ArrayList<MongoCredential>();
             credentials.add(credential);*/
-
+            
             MongoClientSettings settings = MongoClientSettings.builder()
                     .credential(credential)
                     .applyToSslSettings(builder -> builder.enabled(true))
                     .applyToClusterSettings(builder -> 
-                        builder.hosts(Arrays.asList(new ServerAddress("140.121.196.23/ssl=true", 4118))))
+                        builder.hosts(Arrays.asList(new ServerAddress("140.121.196.23", 4118))))
                     .build();
 
             
@@ -76,7 +76,6 @@ public class CinemaCatalogController {
 //選擇集合
             MongoCollection collection = mongoDatabase.getCollection("Movie");
             
-            Document dc = ((Document)collection.find().first());
             
             //System.out.println("Connect to database successfully");
             //return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson();
