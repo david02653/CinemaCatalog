@@ -29,6 +29,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import com.mongodb.ServerAddress;
 
 
@@ -75,7 +76,7 @@ public class CinemaCatalogController {
 			
 			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + collection.find().first();
+            return "Connect to database successfully:\n" + collection.find(Filters.text("A Land Imaged"));
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             return "Connect to database falily: "+e;
