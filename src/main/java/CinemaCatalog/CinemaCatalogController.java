@@ -71,12 +71,11 @@ public class CinemaCatalogController {
 //            System.out.println("集合建立成功");
 //選擇集合
             MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
-            System.out.println(collection.find());
 			
 			
 			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully";
+            return "Connect to database successfully:\n" + collection.find();
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             return "Connect to database falily: "+e;
