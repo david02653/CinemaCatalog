@@ -77,7 +77,7 @@ public class CinemaCatalogController {
             MongoCollection collection = mongoDatabase.getCollection("Movie");
             
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson();
+            return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson().toString();
             
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
