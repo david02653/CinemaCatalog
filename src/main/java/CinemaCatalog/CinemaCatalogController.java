@@ -62,17 +62,17 @@ public class CinemaCatalogController {
             //通過連線認證獲取MongoDB連線
             MongoClient mongoClient = MongoClients.create(settings);
             
-            //連線到資料庫
-            MongoDatabase mongoDatabase = mongoClient.getDatabase("Movie");
+            //連線到資料庫(schema)
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
             System.out.println("MongoDBConnect to database successfully");
-/*
+
             //建立集合
 //            mongoDatabase.createCollection("test");
 //            System.out.println("集合建立成功");
 //選擇集合
-            MongoCollection<Document> collection = mongoDatabase.getCollection("test");
-            System.out.println("集合 test 選擇成功");
-			*/
+            MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
+            System.out.println(collection.find());
+			
 			
 			
             System.out.println("Connect to database successfully");
