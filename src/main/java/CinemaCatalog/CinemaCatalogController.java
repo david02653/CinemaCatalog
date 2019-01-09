@@ -51,7 +51,7 @@ public class CinemaCatalogController {
             //連線到MongoDB服務 如果是遠端連線可以替換“localhost”為伺服器所在IP地址
 			
             //MongoCredential.createScramSha1Credential()三個引數分別為 使用者名稱 資料庫名稱 密碼
-            MongoCredential credential = MongoCredential.createScramSha1Credential("cinema", "Movies", "cinema".toCharArray());
+            MongoCredential credential = MongoCredential.createScramSha1Credential("Movies", "Movies", "Movies".toCharArray());
             /*List<MongoCredential> credentials = new ArrayList<MongoCredential>();
             credentials.add(credential);*/
             
