@@ -26,6 +26,7 @@ import java.util.*;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.Block;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoDatabase;
@@ -75,9 +76,8 @@ public class CinemaCatalogController {
 //選擇集合
             MongoCollection collection = mongoDatabase.getCollection("Movie");
             
-			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + collection.find().comment("A Land Imaged");
+            return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson();
             
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -98,6 +98,12 @@ public class CinemaCatalogController {
 	SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
 	    @Override
 	    public void onResult(final Document document, final Throwable t) {
+	        System.out.println(document.toJson());
+	    }
+	};
+	Block<Document> printDocumentBlock = new Block<Document>() {
+	    @Override
+	    public void apply(final Document document) {
 	        System.out.println(document.toJson());
 	    }
 	};
