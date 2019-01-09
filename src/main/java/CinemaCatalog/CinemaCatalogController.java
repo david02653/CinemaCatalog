@@ -79,7 +79,7 @@ public class CinemaCatalogController {
             return "Connect to database successfully";
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            return "Connect to database falily";
+            return "Connect to database falily: "+e;
         }
 		
 		
