@@ -59,7 +59,7 @@ public class CinemaCatalogController {
                     .credential(credential)
                     .applyToSslSettings(builder -> builder.enabled(true))
                     .applyToClusterSettings(builder -> 
-                        builder.hosts(Arrays.asList(new ServerAddress("140.121.196.23", 4118))))
+                        builder.hosts(Arrays.asList(new ServerAddress("140.121.196.23/ssl=true", 4118))))
                     .build();
 
             
