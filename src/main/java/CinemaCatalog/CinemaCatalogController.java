@@ -76,7 +76,7 @@ public class CinemaCatalogController {
 			
 			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + collection.count();
+            return "Connect to database successfully:\n" + collection.find().limit(10);
             
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
