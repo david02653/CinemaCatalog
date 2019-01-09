@@ -76,7 +76,7 @@ public class CinemaCatalogController {
 			
 			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + collection.find(Filters.text("A Land Imaged")).first();
+            return "Connect to database successfully:\n" + collection.find(Filters.text("A Land Imaged")).toString();
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             return "Connect to database falily: "+e;
