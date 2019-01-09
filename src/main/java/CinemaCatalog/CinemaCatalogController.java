@@ -31,6 +31,8 @@ import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.ServerAddress;
+import com.mongodb.async.SingleResultCallback;
+import com.mongodb.client.model.Filters.*;
 
 
 
@@ -72,11 +74,10 @@ public class CinemaCatalogController {
 //            System.out.println("集合建立成功");
 //選擇集合
             MongoCollection collection = mongoDatabase.getCollection("Movie");
-			
-			
+            
 			
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + collection.find().limit(10);
+            return "Connect to database successfully:\n" + collection.find().comment("A Land Imaged");
             
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
@@ -94,4 +95,14 @@ public class CinemaCatalogController {
     	return CinemaCatalog.getCinemaCatalog(userID);
     }
 	
+	SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
+	    @Override
+	    public void onResult(final Document document, final Throwable t) {
+	        System.out.println(document.toJson());
+	    }
+	};
+	
 }
+
+
+
