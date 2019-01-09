@@ -52,8 +52,8 @@ public class CinemaCatalogController {
 			
             //MongoCredential.createScramSha1Credential()三個引數分別為 使用者名稱 資料庫名稱 密碼
             MongoCredential credential = MongoCredential.createScramSha1Credential("cinema", "Movies", "cinema".toCharArray());
-            List<MongoCredential> credentials = new ArrayList<MongoCredential>();
-            credentials.add(credential);
+            /*List<MongoCredential> credentials = new ArrayList<MongoCredential>();
+            credentials.add(credential);*/
 
             MongoClientSettings settings = MongoClientSettings.builder()
                     .credential(credential)
@@ -77,7 +77,8 @@ public class CinemaCatalogController {
             MongoCollection collection = mongoDatabase.getCollection("Movie");
             
             System.out.println("Connect to database successfully");
-            return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson().toString();
+            //return "Connect to database successfully:\n" + ((Document)collection.find().first()).toJson().toString();
+            return "Connect to database successfully:\n" + ((Document)collection.find().first()).toString();
             
         } catch (Exception e) {  
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
