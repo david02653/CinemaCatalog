@@ -21,8 +21,8 @@ public class CinemaCatalogController {
     }
 	
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "getGrocery", method = RequestMethod.GET)
-    public String getGrocery(@RequestParam("userID") String userID)
+	@RequestMapping(value = "getCinemaCatalog", method = RequestMethod.GET)
+    public String getCinemaCatalog(@RequestParam("userID") String userID)
     {
     	return CinemaCatalog.getCinemaCatalog(userID);
     }
