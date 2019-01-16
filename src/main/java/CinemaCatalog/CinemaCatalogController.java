@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,7 @@ import com.mongodb.client.model.Filters.*;
 
 @RestController
 public class CinemaCatalogController {
-	
+	@CrossOrigin(origins = "*")
 	@RequestMapping("/")
     public String index() 
     {
@@ -90,19 +91,6 @@ public class CinemaCatalogController {
     {
     	return CinemaCatalog.getCinemaCatalog(userID);
     }
-	
-	SingleResultCallback<Document> printDocument = new SingleResultCallback<Document>() {
-	    @Override
-	    public void onResult(final Document document, final Throwable t) {
-	        System.out.println(document.toJson());
-	    }
-	};
-	Block<Document> printDocumentBlock = new Block<Document>() {
-	    @Override
-	    public void apply(final Document document) {
-	        System.out.println(document.toJson());
-	    }
-	};
 	
 }
 
