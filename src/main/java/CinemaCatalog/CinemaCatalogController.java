@@ -35,10 +35,10 @@ public class CinemaCatalogController {
     }
 	
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "getCinemaCatalog", method = RequestMethod.GET)
-    public String getMovie(@RequestParam("MovieID") String MovieID)
+	@RequestMapping(value = "getNotification", method = RequestMethod.GET)
+    public String getNotification(@RequestParam("userID") String ID)
     {
-    	return CinemaCatalog.getMovie(MovieID);
+    	return CinemaCatalog.getNotification(ID);
     }
 	
 }

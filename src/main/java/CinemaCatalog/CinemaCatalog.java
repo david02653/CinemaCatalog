@@ -47,10 +47,6 @@ public class CinemaCatalog {
         }
 	}
 	
-	public static String getMovie(String MovieID) {
-		return "";
-	}
-	
 	
 	public static String getMovieByID(String ID) {
 		try {  
