@@ -27,6 +27,20 @@ public class CinemaCatalogController {
     	return CinemaCatalog.getCinemaCatalog(userID);
     }
 	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "getMovieByID", method = RequestMethod.GET)
+    public String getMovieByID(@RequestParam("ID") String ID)
+    {
+    	return CinemaCatalog.getMovieByID(ID);
+    }
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "getCinemaCatalog", method = RequestMethod.GET)
+    public String getMovie(@RequestParam("MovieID") String MovieID)
+    {
+    	return CinemaCatalog.getMovie(MovieID);
+    }
+	
 }
 
 
