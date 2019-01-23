@@ -3,6 +3,7 @@ package CinemaCatalog;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -15,6 +16,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+
+import java.util.ArrayList;
 
 public class CinemaCatalog {
 	public static String getAllMovies() {
@@ -88,6 +91,23 @@ public class CinemaCatalog {
 			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+userID);
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			result = xmlDoc.html();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+		return result;
+	}
+	
+	public static String orderingMovie(String moviesID)
+	{
+		String result = "";
+		try {
+			URL url = new URL("http://140.121.196.23:4105/newMovie?moviesID="+moviesID);
+			URLConnection urlConnection = url.openConnection();
+			
+			result = (String)urlConnection.getContent();
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

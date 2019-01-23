@@ -41,6 +41,14 @@ public class CinemaCatalogController {
     	return CinemaCatalog.getNotification(userID);
     }
 	
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "orderingMovie", method = RequestMethod.GET)
+    public String orderingMovie(@RequestParam("moviesID") String moviesID)
+    {
+    	return CinemaCatalog.orderingMovie(moviesID);
+    }
+	
 }
 
 
