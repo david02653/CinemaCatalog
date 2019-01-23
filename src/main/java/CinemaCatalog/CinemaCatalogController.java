@@ -22,9 +22,9 @@ public class CinemaCatalogController {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "getCinemaCatalog", method = RequestMethod.GET)
-    public String getCinemaCatalog(@RequestParam("userID") String userID)
+    public String getAllMovies()
     {
-    	return CinemaCatalog.getCinemaCatalog(userID);
+    	return CinemaCatalog.getAllMovies();
     }
 	
 	@CrossOrigin(origins = "*")
@@ -36,9 +36,9 @@ public class CinemaCatalogController {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "getNotification", method = RequestMethod.GET)
-    public String getNotification(@RequestParam("userID") String ID)
+    public String getNotification(@RequestParam("userID") String userID)
     {
-    	return CinemaCatalog.getNotification(ID);
+    	return CinemaCatalog.getNotification(userID);
     }
 	
 }

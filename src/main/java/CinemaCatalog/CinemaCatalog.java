@@ -17,7 +17,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 public class CinemaCatalog {
-	public static String getCinemaCatalog(String userID) {
+	public static String getAllMovies() {
 		try {  
             
 			System.out.println("MongoDBConnect to database begin");
@@ -81,11 +81,11 @@ public class CinemaCatalog {
         }
 	}
 	
-	public static String getNotification(String ID) 
+	public static String getNotification(String userID) 
 	{
 		String result = "";
 		try {
-			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+ID);
+			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+userID);
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			result = xmlDoc.html();
 		} catch (MalformedURLException e) {
