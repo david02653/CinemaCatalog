@@ -86,13 +86,14 @@ public class CinemaCatalog {
         }
 	}
 	
-	public static String getNotification(String userID) 
+	public static String getNotification(String ID) 
 	{
 		String result = "";
+		
 		try {
-			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+userID);
+			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+ID);
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
-			result = xmlDoc.html();
+			result = xmlDoc.select("body").get(0).text();
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
