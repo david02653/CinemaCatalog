@@ -105,7 +105,7 @@ public class CinemaCatalog {
 	{
 		String result = "";
 		try {
-			URL url = new URL("http://140.121.196.23:4105/newMovie?moviesID="+moviesID);
+			URL url = new URL("http://140.121.196.23:4105/newMovieOrdering?moviesID="+moviesID);
 			URLConnection urlConnection = url.openConnection();
 			
 			
