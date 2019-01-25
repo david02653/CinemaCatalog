@@ -82,7 +82,7 @@ public class CinemaCatalog {
             
             MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
             
-            String aaa = "";
+            
             for(int i = 0; i < jsonArray.size(); i++) {
             	JSONObject jsonObject = jsonArray.getJSONObject(i);
             	
@@ -90,7 +90,6 @@ public class CinemaCatalog {
             	
             	whereQuery.put("_id", new ObjectId(jsonObject.getString("ObjectID")));
             	
-            	aaa = jsonObject.getString("ObjectID");
                 FindIterable<Document> fi = collection.find(whereQuery);
                 MongoCursor<Document> cursor = fi.iterator();
                 while(cursor.hasNext()) 
@@ -105,8 +104,7 @@ public class CinemaCatalog {
 			
 			result += "]";
 			
-			//return result;
-			return aaa;
+			return result;
 			
 			
 		} catch (MalformedURLException e) {
