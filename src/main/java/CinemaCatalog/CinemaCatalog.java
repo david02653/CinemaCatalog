@@ -19,7 +19,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
-import java.util.ArrayList;
+import net.sf.json.JSONArray;
+
+import static com.mongodb.client.model.Filters.*;
 
 public class CinemaCatalog {
 	public static String getAllMovies() {
@@ -53,37 +55,56 @@ public class CinemaCatalog {
 	}
 	
 	
-	public static String getMovieByID(String ID) {
-		try {  
-            
+	public static String getMovieByID() {
+		String result = "";
+		
+		try {
+			
+			result = "[";
+			
+			
+			URL url = new URL("http://140.121.196.23:4102/getNotification?userID=1");
+			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
+			String jaStr = xmlDoc.select("body").get(0).text();
+			
+			JSONArray jsonArray = JSONArray.fromObject(jaStr);
+			
+			
 			System.out.println("MongoDBConnect to database begin");
-
+			
             MongoClient mongoClient = MongoClients.create("mongodb://cinema:cinema@140.121.196.23:4118");
             
-
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
             System.out.println("MongoDBConnect to database successfully");
-
-            String result = "[";
-            MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
-            BasicDBObject whereQuery = new BasicDBObject();
-        	whereQuery.put("_id", new ObjectId(ID));
-            FindIterable<Document> fi = collection.find(whereQuery);
-            MongoCursor<Document> cursor = fi.iterator();
-            while(cursor.hasNext()) 
-            {
-            	result += cursor.next().toJson();
-            	if(cursor.hasNext())
-            		result += ",";
-            }
-            result += "]";
-            System.out.println("Connect to database successfully");
-            return result;
             
-        } catch (Exception e) {  
-            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-            return "{}";
-        }
+            for(int i = 0; i < jsonArray.size(); i++) {
+            	
+            	MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
+                FindIterable<Document> fi = collection.find(eq("_id", jsonArray.getJSONObject(0).getJSONObject("ObjectID")));
+                MongoCursor<Document> cursor = fi.iterator();
+                while(cursor.hasNext()) 
+                {
+                	result += cursor.next().toJson();
+                	if(cursor.hasNext())
+                		result += ",";
+                }
+            	
+            }
+			
+			
+			result += "]";
+			
+			return result;
+			
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
 	}
 	
 	public static String getNotification(String ID) 

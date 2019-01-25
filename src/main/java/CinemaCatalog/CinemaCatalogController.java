@@ -29,9 +29,9 @@ public class CinemaCatalogController {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "getMovieByID", method = RequestMethod.GET)
-    public String getMovieByID(@RequestParam("ID") String ID)
+    public String getMovieByID()
     {
-    	return CinemaCatalog.getMovieByID(ID);
+    	return CinemaCatalog.getMovieByID();
     }
 	
 	@CrossOrigin(origins = "*")
