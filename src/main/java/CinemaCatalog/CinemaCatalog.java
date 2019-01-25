@@ -84,7 +84,7 @@ public class CinemaCatalog {
             for(int i = 0; i < jsonArray.length(); i++) {
             	JSONObject jsonObject = jsonArray.getJSONObject(0);
             	
-                FindIterable<Document> fi = collection.find(eq("_id", jsonObject.getString("ObjectID")));
+                FindIterable<Document> fi = collection.find(eq("_id", new ObjectId(jsonObject.getString("ObjectID"))));
                 MongoCursor<Document> cursor = fi.iterator();
                 while(cursor.hasNext()) 
                 {
