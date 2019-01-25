@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+
 import static com.mongodb.client.model.Filters.*;
 
 public class CinemaCatalog {
@@ -81,6 +82,7 @@ public class CinemaCatalog {
             
             MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
             
+            String aaa = "";
             for(int i = 0; i < jsonArray.length(); i++) {
             	JSONObject jsonObject = jsonArray.getJSONObject(i);
             	
@@ -88,21 +90,23 @@ public class CinemaCatalog {
             	
             	whereQuery.put("_id", new ObjectId(jsonObject.getString("ObjectID")));
             	
+            	aaa = jsonObject.getString("ObjectID");
                 FindIterable<Document> fi = collection.find(whereQuery);
                 MongoCursor<Document> cursor = fi.iterator();
                 while(cursor.hasNext()) 
                 {
                 	result += cursor.next().toJson();
-                	if(cursor.hasNext())
-                		result += ",";
                 }
+                
+                result += ",";
             	
             }
 			
 			
 			result += "]";
 			
-			return result;
+			//return result;
+			return aaa;
 			
 			
 		} catch (MalformedURLException e) {
