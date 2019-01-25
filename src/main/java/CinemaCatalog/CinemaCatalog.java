@@ -86,7 +86,7 @@ public class CinemaCatalog {
             	
             	BasicDBObject whereQuery = new BasicDBObject();
             	
-            	whereQuery.put("_id", new ObjectId(jsonObject.getString("ObjectId")));
+            	whereQuery.put("_id", new ObjectId(jsonObject.getString("ObjectID")));
             	
                 FindIterable<Document> fi = collection.find(whereQuery);
                 MongoCursor<Document> cursor = fi.iterator();
