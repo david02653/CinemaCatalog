@@ -19,7 +19,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
-import net.sf.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -67,7 +69,7 @@ public class CinemaCatalog {
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			String jaStr = xmlDoc.select("body").get(0).text();
 			
-			JSONArray jsonArray = JSONArray.fromObject(jaStr);
+			JSONArray jsonArray = new JSONArray(jaStr);
 			
 			
 			System.out.println("MongoDBConnect to database begin");
@@ -79,10 +81,10 @@ public class CinemaCatalog {
             
             MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
             
-            for(int i = 0; i < jsonArray.size(); i++) {
+            for(int i = 0; i < jsonArray.length(); i++) {
+            	JSONObject jsonObject = jsonArray.getJSONObject(0);
             	
-            	
-                FindIterable<Document> fi = collection.find(eq("_id", jsonArray.getJSONObject(i).getString("ObjectID")));
+                FindIterable<Document> fi = collection.find(eq("_id", jsonObject.getString("ObjectID")));
                 MongoCursor<Document> cursor = fi.iterator();
                 while(cursor.hasNext()) 
                 {
@@ -102,6 +104,8 @@ public class CinemaCatalog {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
