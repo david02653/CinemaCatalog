@@ -77,10 +77,12 @@ public class CinemaCatalog {
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
             System.out.println("MongoDBConnect to database successfully");
             
+            MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
+            
             for(int i = 0; i < jsonArray.size(); i++) {
             	
-            	MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
-                FindIterable<Document> fi = collection.find(eq("_id", jsonArray.getJSONObject(0).getJSONObject("ObjectID")));
+            	
+                FindIterable<Document> fi = collection.find(eq("_id", jsonArray.getJSONObject(i).getString("ObjectID")));
                 MongoCursor<Document> cursor = fi.iterator();
                 while(cursor.hasNext()) 
                 {
