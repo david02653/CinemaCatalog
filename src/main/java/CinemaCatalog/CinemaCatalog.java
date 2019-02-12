@@ -109,11 +109,11 @@ public class CinemaCatalog {
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
+			return "{}";
 		} catch (IOException e) {
 			e.printStackTrace();
+			return "{}";
 		}
-		
-		return result;
 		
 	}
 	
