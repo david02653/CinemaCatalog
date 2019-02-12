@@ -97,7 +97,7 @@ public class CinemaCatalog {
                 	result += cursor.next().toJson();
                 }
             	
-                if(i < jsonArray.size())
+                if(i < jsonArray.size() - 1)
                 	result += ",";
             }
 			
