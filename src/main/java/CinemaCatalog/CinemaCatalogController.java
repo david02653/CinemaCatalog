@@ -52,11 +52,10 @@ public class CinemaCatalogController {
     	return CinemaCatalog.getNotification(userID);
     }
 	
-	//@ApiOperation(value = "購買電影", notes = "購買成功就回傳成功")
+	@ApiOperation(value = "購買電影", notes = "購買成功就回傳成功")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "orderingMovie", method = RequestMethod.GET)
-    //public String orderingMovie(@ApiParam(required = true, name = "ID", value = "電影編號")@RequestParam("moviesID") String moviesID)
-	public String orderingMovie(@RequestParam("moviesID") String moviesID)
+    public String orderingMovie(@ApiParam(required = true, name = "ID", value = "電影編號")@RequestParam("moviesID") String moviesID)
     {
     	return CinemaCatalog.orderingMovie(moviesID);
     }
