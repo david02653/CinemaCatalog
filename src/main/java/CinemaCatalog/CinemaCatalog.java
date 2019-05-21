@@ -66,7 +66,7 @@ public class CinemaCatalog {
 			result = "[";
 			
 			
-			URL url = new URL("http://140.121.196.23:4105/getMovieFromOrderList?userID=1");
+			URL url = new URL("http://140.121.196.23:4139/ordering/getMovieFromOrderList?userID=1");
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			String jaStr = xmlDoc.select("body").get(0).text();
 			
@@ -137,7 +137,7 @@ public class CinemaCatalog {
 	{
 		String result = "";
 		try {
-			URL url = new URL("http://140.121.196.23:4105/newMovieOrdering?moviesID="+moviesID);
+			URL url = new URL("http://140.121.196.23:4139/ordering/newMovieOrdering?moviesID="+moviesID);
 			URLConnection urlConnection = url.openConnection();
 			
 			
