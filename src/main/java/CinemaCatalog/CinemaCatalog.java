@@ -122,7 +122,7 @@ public class CinemaCatalog {
 		String result = "";
 		
 		try {
-			URL url = new URL("http://140.121.196.23:4102/getNotification?userID="+ID);
+			URL url = new URL("http://140.121.196.23:4139/notification/getNotification?userID="+ID);
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			result = xmlDoc.select("body").get(0).text();
 		} catch (MalformedURLException e) {
