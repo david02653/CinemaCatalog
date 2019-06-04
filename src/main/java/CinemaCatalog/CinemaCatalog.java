@@ -10,7 +10,6 @@ import java.net.URLConnection;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.jsoup.Jsoup;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
@@ -20,14 +19,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+
+import static com.mongodb.client.model.Filters.*;
+
 public class CinemaCatalog {
-	
-	@Autowired
-	FeignInterface feignInterface;
-	
 	public static String getAllMovies() {
 		try {  
             
@@ -71,13 +70,6 @@ public class CinemaCatalog {
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			String jaStr = xmlDoc.select("body").get(0).text();
 			
-			
-			//String jaStr = feignInterface.getMovieByID(userID);
-			/*
-			System.out.println("------------------------------------");
-			System.out.println(feignInterface.getMovieByID(userID));
-			System.out.println("------------------------------------");
-			*/
 			JSONArray jsonArray = JSONArray.fromObject(jaStr);
 			
 			
@@ -115,7 +107,10 @@ public class CinemaCatalog {
 			return result;
 			
 			
-		} catch (Exception e) {
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return "{}";
+		} catch (IOException e) {
 			e.printStackTrace();
 			return "{}";
 		}

@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Api(value = "CinemaCatalogController", tags = "與電影相關的所有一切都在這裡")
 @RestController
 public class CinemaCatalogController {
-	
-	//CinemaCatalog cinemaCatalog;
-	
 	@ApiOperation(value = "測試此伺服器是否成功連線", notes = "成功連線就回傳success")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="/", method = RequestMethod.GET)
