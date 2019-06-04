@@ -72,7 +72,7 @@ public class CinemaCatalog {
 			String jaStr = xmlDoc.select("body").get(0).text();
 			*/
 			
-			String jaStr = feignInterface.getMovieByID(userID);
+			String jaStr = feignInterface.getMovieByID();
 			
 			JSONArray jsonArray = JSONArray.fromObject(jaStr);
 			
