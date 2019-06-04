@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Api(value = "CinemaCatalogController", tags = "與電影相關的所有一切都在這裡")
 @RestController
 public class CinemaCatalogController {
-	@Autowired
-	
 	
 	CinemaCatalog cinemaCatalog;
 	
