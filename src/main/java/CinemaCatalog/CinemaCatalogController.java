@@ -39,7 +39,7 @@ public class CinemaCatalogController {
 	
 	@ApiOperation(value = "利用ID找到某個電影", notes = "回傳某電影資料")
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "getMovieByID", method = RequestMethod.GET)
+	@RequestMapping(value = "/getMovieByID", method = RequestMethod.GET)
     public String getMovieByID(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
     {
     	return cinema.getMovieByID(userID);
