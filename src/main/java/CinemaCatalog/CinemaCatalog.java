@@ -75,6 +75,10 @@ public class CinemaCatalog {
 			
 			String jaStr = feignInterface.getMovieByID(userID);
 			
+			System.out.println("-----------------------------------------------------------------------");
+			System.out.println(jaStr);
+			System.out.println("-----------------------------------------------------------------------");
+			
 			JSONArray jsonArray = JSONArray.fromObject(jaStr);
 			
 			
