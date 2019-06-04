@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name="api-gateway")
 public interface FeignInterface {
 	
-	@RequestMapping(value = "/ordering/getMovieFromOrderList", method = RequestMethod.GET)
-    public String getMovieByID(@RequestParam(value="userID") String userID);
+	@RequestMapping(value = "/ordering/getMovieFromOrderList?userID=1", method = RequestMethod.GET)
+    public String getMovieByID();
 	
 }
