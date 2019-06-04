@@ -58,7 +58,7 @@ public class CinemaCatalog {
 	}
 	
 	
-	public static String getMovieByID(String userID) {
+	public String getMovieByID(String userID) {
 		String result = "";
 		
 		try {
