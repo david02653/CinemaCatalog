@@ -42,7 +42,7 @@ public class CinemaCatalogController {
 	@RequestMapping(value = "getMovieByID", method = RequestMethod.GET)
     public String getMovieByID(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
     {
-    	return cinemaCatalog.getMovieByID(userID);
+    	return CinemaCatalog.getMovieByID(userID);
     }
 	
 	@ApiOperation(value = "拿到所有通知", notes = "回傳通知資料")
