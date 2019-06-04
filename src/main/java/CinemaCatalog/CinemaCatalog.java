@@ -59,20 +59,20 @@ public class CinemaCatalog {
 	}
 	
 	
-	public static String getMovieByID(String userID) {
+	public String getMovieByID(String userID) {
 		String result = "";
 		
 		try {
 			
 			result = "[";
 			
-			
+			/*
 			URL url = new URL("http://140.121.196.23:4139/ordering/getMovieFromOrderList?userID=1");
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			String jaStr = xmlDoc.select("body").get(0).text();
+			*/
 			
-			
-			//String jaStr = feignInterface.getMovieByID(userID);
+			String jaStr = feignInterface.getMovieByID(userID);
 			
 			JSONArray jsonArray = JSONArray.fromObject(jaStr);
 			
