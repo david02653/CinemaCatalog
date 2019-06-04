@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class CinemaCatalogController {
 	
-	CinemaCatalog cinema;
-	
 	@ApiOperation(value = "測試此伺服器是否成功連線", notes = "成功連線就回傳success")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="/", method = RequestMethod.GET)
@@ -42,7 +40,7 @@ public class CinemaCatalogController {
 	@RequestMapping(value = "getMovieByID", method = RequestMethod.GET)
     public String getMovieByID(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
     {
-    	return cinema.getMovieByID(userID);
+    	return CinemaCatalog.getMovieByID(userID);
     }
 	
 	@ApiOperation(value = "拿到所有通知", notes = "回傳通知資料")
