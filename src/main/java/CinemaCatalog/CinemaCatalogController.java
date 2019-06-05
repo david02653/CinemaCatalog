@@ -63,7 +63,10 @@ public class CinemaCatalogController {
 	@RequestMapping(value = "/getMovieByID", method = RequestMethod.GET)
     public String getMovieByID(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
     {
-		return CinemaCatalog.getMovieByID(userID,feignInterface.getMovieByID(userID));
+		String data = feignInterface.getMovieByID(userID);
+		
+		
+		return CinemaCatalog.getMovieByID(userID,data);
     }
 	
 	@ApiOperation(value = "拿到所有通知", notes = "回傳通知資料")
