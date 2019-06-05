@@ -63,64 +63,18 @@ public class CinemaCatalogController {
 	@RequestMapping(value = "/getMovieByID", method = RequestMethod.GET)
     public String getMovieByID(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
     {
-		String result = "";
-		
-		
+		String data = "";
 		try {
 			
-			result = "[";
-			
-			/*
-			URL url = new URL("http://140.121.196.23:4139/ordering/getMovieFromOrderList?userID=1");
-			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
-			String jaStr = xmlDoc.select("body").get(0).text();
-			*/
-			
-			String jaStr = feignInterface.getMovieByID(userID);
-			
-
-			
-			JSONArray jsonArray = JSONArray.fromObject(jaStr);
-			
-			
-			System.out.println("MongoDBConnect to database begin");
-			
-            MongoClient mongoClient = MongoClients.create("mongodb://cinema:cinema@140.121.196.23:4118");
-            
-            MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
-            System.out.println("MongoDBConnect to database successfully");
-            
-            MongoCollection<Document> collection = mongoDatabase.getCollection("Movie");
-            
-            
-            for(int i = 0; i < jsonArray.size(); i++) {
-            	JSONObject jsonObject = jsonArray.getJSONObject(i);
-            	
-            	BasicDBObject whereQuery = new BasicDBObject();
-            	
-            	whereQuery.put("_id", new ObjectId(jsonObject.getString("ObjectID")));
-            	
-                FindIterable<Document> fi = collection.find(whereQuery);
-                MongoCursor<Document> cursor = fi.iterator();
-                while(cursor.hasNext()) 
-                {
-                	result += cursor.next().toJson();
-                }
-            	
-                if(i < jsonArray.size() - 1)
-                	result += ",";
-            }
-			
-			
-			result += "]";
-			
-			return result;
+			data = feignInterface.getMovieByID(userID);
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "{}";
 		}
+		
+		
+		return CinemaCatalog.getMovieByID(userID,data);
     }
 	
 	@ApiOperation(value = "拿到所有通知", notes = "回傳通知資料")
