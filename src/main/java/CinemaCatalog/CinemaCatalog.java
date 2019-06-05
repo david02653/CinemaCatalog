@@ -59,7 +59,7 @@ public class CinemaCatalog {
 	}
 	
 	
-	public static String getMovieByID(String userID, String data) {
+	public static String getMovieByID(String userID) {
 		String result = "";
 		
 		
@@ -72,7 +72,12 @@ public class CinemaCatalog {
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			String jaStr = xmlDoc.select("body").get(0).text();
 			*/
-			String jaStr = data;
+			
+			System.out.println("-----------------------------------------------------------------------");
+			System.out.println(feignInterface.getMovieByID(userID));
+			System.out.println("-----------------------------------------------------------------------");
+			
+			String jaStr = feignInterface.getMovieByID(userID);
 			
 
 			
