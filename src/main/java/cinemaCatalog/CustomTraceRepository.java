@@ -1,4 +1,4 @@
-package CinemaCatalog;
+package cinemaCatalog;
 
 import java.util.Map;
 import java.util.logging.Logger;

@@ -1,4 +1,12 @@
-package CinemaCatalog;
+package cinemaCatalog;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.client.*;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.jsoup.Jsoup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,25 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import org.bson.Document;
-import org.bson.types.ObjectId;
-import org.jsoup.Jsoup;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.mongodb.BasicDBObject;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
 public class CinemaCatalog {
-	@Autowired
-	public static FeignInterface feignInterface;
 	
 	
 	public static String getAllMovies() {

@@ -1,4 +1,4 @@
-package CinemaCatalog;
+package cinemaCatalog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
