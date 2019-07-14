@@ -56,12 +56,7 @@ public class CinemaCatalog {
 		try {
 			
 			result = "[";
-			
-			/*
-			URL url = new URL("http://140.121.196.23:4139/ordering/getMovieFromOrderList?userID=1");
-			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
-			String jaStr = xmlDoc.select("body").get(0).text();
-			*/
+
 			String jaStr = data;
 			
 
@@ -109,7 +104,8 @@ public class CinemaCatalog {
 		}
 		
 	}
-	
+
+	// Replace this function with Feign
 	public static String getNotification(String userID) 
 	{
 		String result = "";
@@ -125,7 +121,8 @@ public class CinemaCatalog {
 		} 
 		return result;
 	}
-	
+
+	// Replace this function with Feign
 	public static String orderingMovie(String moviesID)
 	{
 		String result = "";
