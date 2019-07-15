@@ -31,7 +31,7 @@ public class SwaggerConfig {
                 .description("root：http://140.121.196.23:4104/")
                 .termsOfServiceUrl("http://140.121.196.23:4104/")
                 .contact("俊佑")
-                .version("0.0.1-SNAPSHOT")
+                .version("1.0")
                 .build();
     }
 }
