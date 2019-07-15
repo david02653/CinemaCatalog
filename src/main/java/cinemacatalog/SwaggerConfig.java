@@ -1,4 +1,4 @@
-package cinemaCatalog;
+package cinemacatalog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("cinemaCatalog"))
+                .apis(RequestHandlerSelectors.basePackage("cinemacatalog"))
                 .paths(PathSelectors.any())
                 .build();
     }

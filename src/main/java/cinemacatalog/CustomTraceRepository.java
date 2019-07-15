@@ -1,12 +1,11 @@
-package cinemaCatalog;
+package cinemacatalog;
 
-import java.util.Map;
-import java.util.logging.Logger;
-
+import com.google.common.collect.Ordering;
 import org.springframework.boot.actuate.trace.InMemoryTraceRepository;
 import org.springframework.stereotype.Repository;
 
-import com.google.common.collect.Ordering;
+import java.util.Map;
+import java.util.logging.Logger;
 
 @Repository
 public class CustomTraceRepository extends InMemoryTraceRepository {

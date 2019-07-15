@@ -1,4 +1,4 @@
-package cinemaCatalog;
+package cinemacatalog;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
