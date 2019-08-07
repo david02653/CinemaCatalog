@@ -130,7 +130,7 @@
 			<artifactId>vmamv-service-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
-			<systemPath>/home/cinema/.m2/repository/com/soselab/vmamv-service-client/0.0.1-SNAPSHOT/vmamv-service-client-0.0.1-SNAPSHOT.jar</systemPath>
+<!--			<systemPath>/home/cinema/.m2/repository/com/soselab/vmamv-service-client/0.0.1-SNAPSHOT/vmamv-service-client-0.0.1-SNAPSHOT.jar</systemPath>-->
 		</dependency>
 		
 	</dependencies>
