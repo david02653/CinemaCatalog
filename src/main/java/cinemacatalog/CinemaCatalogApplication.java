@@ -8,7 +8,6 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 
 @SpringBootApplication
-@EnableVmamvClient
 @EnableEurekaClient
 @EnableFeignClients
 public class CinemaCatalogApplication {
