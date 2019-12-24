@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
 @AutoConfigureStubRunner(workOffline = true, ids = "Ordering:ordering:+:stubs:14104")
-public class BasicControllerTest {
+public class ConsumerRoleBasicControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
