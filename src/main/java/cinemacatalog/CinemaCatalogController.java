@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @Api(value = "CinemaCatalogController", tags = "與電影相關的所有一切都在這裡")
 @RestController
 public class CinemaCatalogController {
@@ -21,6 +22,22 @@ public class CinemaCatalogController {
 	OrderingInterface orderingInterface;
 	@Autowired
 	NotificationInterface notificationInterface;
+
+
+	@RequestMapping(value="/calculate", method = RequestMethod.GET)
+	public String checkOddAndEven(@RequestParam("number") Integer number) {
+
+		String result = "";
+
+		try {
+			result = orderingInterface.checkOddAndEven(number);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 
 	private static final Logger logger = LoggerFactory.getLogger(CinemaCatalogController.class);
 	

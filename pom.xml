@@ -185,6 +185,25 @@
 <!--			<systemPath>${env.HOME}/.m2/repository/Ordering/Ordering/0.0.1-SNAPSHOT/Ordering-0.0.1-SNAPSHOT-stubs.jar</systemPath>-->
 <!--		</dependency>-->
 
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-wiremock</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-contract-stub-runner</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- location of stub.jar -->
+		<dependency>
+			<groupId>Ordering</groupId>
+			<artifactId>ordering</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
