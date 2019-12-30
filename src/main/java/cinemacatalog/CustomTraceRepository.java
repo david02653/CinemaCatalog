@@ -1,3 +1,4 @@
+/*
 package cinemacatalog;
 
 import com.google.common.collect.Ordering;
@@ -24,3 +25,4 @@ public class CustomTraceRepository extends InMemoryTraceRepository {
         logger.info("traced object: " + map);
     }
 }
+*/
