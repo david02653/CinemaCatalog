@@ -146,45 +146,6 @@
 			<scope>test</scope>
 		</dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>au.com.dius</groupId>-->
-<!--            <artifactId>pact-jvm-consumer-junit_2.12</artifactId>-->
-<!--            <version>${pact.version}</version>-->
-<!--        </dependency>-->
-
-
-
-<!--		&lt;!&ndash; spring cloud contract&ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-contract-wiremock</artifactId>-->
-<!--			<version>2.0.0.RELEASE</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-contract-stub-runner</artifactId>-->
-<!--			<version>2.0.0.RELEASE</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-
-<!--		&lt;!&ndash;Provider Local&ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>Ordering</groupId>-->
-<!--			<artifactId>Ordering</artifactId>-->
-<!--			<version>0.0.1-SNAPSHOT</version>-->
-<!--			<classifier>stubs</classifier>-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<groupId>*</groupId>-->
-<!--					<artifactId>*</artifactId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
-<!--&lt;!&ndash;			<scope>test</scope>&ndash;&gt;-->
-<!--			<scope>system</scope>-->
-<!--			<systemPath>${env.HOME}/.m2/repository/Ordering/Ordering/0.0.1-SNAPSHOT/Ordering-0.0.1-SNAPSHOT-stubs.jar</systemPath>-->
-<!--		</dependency>-->
-
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -202,6 +163,11 @@
 			<artifactId>ordering</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
 
 	</dependencies>

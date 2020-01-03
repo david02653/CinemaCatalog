@@ -22,4 +22,7 @@ public interface OrderingInterface {
     @RequestMapping(value = "/validate/prime-number", method = RequestMethod.GET)
     String checkOddAndEven(@RequestParam("number") Integer number);
 
+    @RequestMapping(value = "/hi", method = RequestMethod.GET)
+    String hello(@RequestParam("name") String name);
+
 }

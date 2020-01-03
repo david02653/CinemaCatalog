@@ -9,9 +9,9 @@ import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 
 @Api(value = "CinemaCatalogController", tags = "與電影相關的所有一切都在這裡")
@@ -24,19 +24,18 @@ public class CinemaCatalogController {
 	NotificationInterface notificationInterface;
 
 
+	@RequestMapping("/hi")
+	public String home(@RequestParam("name") String name) {
+
+		return orderingInterface.hello(name);
+	}
+
 	@RequestMapping(value="/calculate", method = RequestMethod.GET)
 	public String checkOddAndEven(@RequestParam("number") Integer number) {
-
-		String result = "";
-
-		try {
-			result = orderingInterface.checkOddAndEven(number);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
+		return orderingInterface.checkOddAndEven(number);
 	}
+
+
 
 
 	private static final Logger logger = LoggerFactory.getLogger(CinemaCatalogController.class);
