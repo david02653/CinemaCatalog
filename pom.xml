@@ -6,7 +6,7 @@
 	<groupId>CinemaCatalog</groupId>
 	<!--	lower case -->
 	<artifactId>cinemacatalog</artifactId>
-	<version>3.1.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>cinemacatalog</name>
@@ -24,8 +24,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Edgware.SR5</spring-cloud.version>
-		<pact.version>3.6.7</pact.version>
-		<pact.broker.url>http://localhost:8500/</pact.broker.url>
+<!--		<pact.version>3.6.7</pact.version>-->
+<!--		<pact.broker.url>http://localhost:8500/</pact.broker.url>-->
 	</properties>
 
 	<dependencies>
@@ -139,12 +139,12 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>au.com.dius</groupId>
-			<artifactId>pact-jvm-consumer-junit_2.12</artifactId>
-			<version>${pact.version}</version>
-			<scope>test</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>au.com.dius</groupId>-->
+<!--			<artifactId>pact-jvm-consumer-junit_2.12</artifactId>-->
+<!--			<version>${pact.version}</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
 
 
 		<dependency>
@@ -207,16 +207,16 @@
 			</plugin>
 
 
-			<plugin>
-				<groupId>au.com.dius</groupId>
-				<artifactId>pact-jvm-provider-maven_2.12</artifactId>
-				<version>${pact.version}</version>
-				<configuration>
-					<pactBrokerUrl>${pact.broker.url}</pactBrokerUrl>
-					<pactDirectory>target/pacts</pactDirectory>
+<!--			<plugin>-->
+<!--				<groupId>au.com.dius</groupId>-->
+<!--				<artifactId>pact-jvm-provider-maven_2.12</artifactId>-->
+<!--				<version>${pact.version}</version>-->
+<!--				<configuration>-->
+<!--					<pactBrokerUrl>${pact.broker.url}</pactBrokerUrl>-->
+<!--					<pactDirectory>target/pacts</pactDirectory>-->
 
-				</configuration>
-			</plugin>
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 

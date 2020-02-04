@@ -24,7 +24,7 @@ public class CinemaCatalogController {
 	NotificationInterface notificationInterface;
 
 
-	@RequestMapping("/hi")
+	@RequestMapping(value="/hi", method = RequestMethod.GET )
 	public String home(@RequestParam("name") String name) {
 
 		return orderingInterface.hello(name);
