@@ -35,6 +35,11 @@ public class CinemaCatalogController {
 		return orderingInterface.checkOddAndEven(number);
 	}
 
+	@RequestMapping(value="/simulateError", method = RequestMethod.GET)
+	public String simulateError(@RequestParam("number") Integer number) {
+		return orderingInterface.simulateError(number);
+	}
+
 
 
 
@@ -49,7 +54,7 @@ public class CinemaCatalogController {
 		return "success";
     }
 
-	@ApiOperation(value = "測試此伺服器是否成功連線", notes = "成功連線就回傳success")
+	@ApiOperation(value = "模擬404錯誤", notes = "會回傳404")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="/index2", method = RequestMethod.GET)
 	public ResponseEntity<CinemaCatalog> index2()

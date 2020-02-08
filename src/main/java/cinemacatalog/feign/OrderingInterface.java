@@ -25,4 +25,7 @@ public interface OrderingInterface {
     @RequestMapping(value = "/hi", method = RequestMethod.GET)
     String hello(@RequestParam("name") String name);
 
+    @RequestMapping(value = "/simulateError", method = RequestMethod.GET)
+    String simulateError(@RequestParam("number") Integer number);
+
 }
