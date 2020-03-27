@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
 @AutoConfigureStubRunner(workOffline = true, ids = "Ordering:ordering:+:stubs:14104")
-public class ConsumerRoleBasicControllerTest {
+public class ConsumerRoleBasicControllerTest_Ordering {
     @Autowired
     private MockMvc mockMvc;
 
@@ -28,6 +28,19 @@ public class ConsumerRoleBasicControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/calculate?number=2").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Even"));
+    }
+
+    @Test
+    public void getMovieByID_Test() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/getMovieFromOrderList?userID=1").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void orderingMovie_Test() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/newMovieOrdering?movieID=5e0b10fa974ef74883b43403").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string("success"));
     }
 
 }
