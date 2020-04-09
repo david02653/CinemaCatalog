@@ -193,6 +193,24 @@
 
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/test/resources/contracts</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.groovy</include>
+				</includes>
+				<targetPath>${project.artifactId}/contracts/</targetPath>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
