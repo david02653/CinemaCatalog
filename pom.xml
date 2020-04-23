@@ -198,7 +198,7 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 				<includes>
-					<include>**/*.properties</include>
+					<include>**/*</include>
 				</includes>
 			</resource>
 			<resource>
@@ -231,17 +231,6 @@
 				<artifactId>git-commit-id-plugin</artifactId>
 			</plugin>
 
-
-<!--			<plugin>-->
-<!--				<groupId>au.com.dius</groupId>-->
-<!--				<artifactId>pact-jvm-provider-maven_2.12</artifactId>-->
-<!--				<version>${pact.version}</version>-->
-<!--				<configuration>-->
-<!--					<pactBrokerUrl>${pact.broker.url}</pactBrokerUrl>-->
-<!--					<pactDirectory>target/pacts</pactDirectory>-->
-
-<!--				</configuration>-->
-<!--			</plugin>-->
 		</plugins>
 	</build>
 
