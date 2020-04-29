@@ -1,7 +1,0 @@
-cinemacatalog/CinemaCatalog.class
-cinemacatalog/feign/NotificationInterface.class
-cinemacatalog/sleuth/HttpResponseInjectingTraceFilter.class
-cinemacatalog/CinemaCatalogController.class
-cinemacatalog/SwaggerConfig.class
-cinemacatalog/feign/OrderingInterface.class
-cinemacatalog/CinemaCatalogApplication.class
