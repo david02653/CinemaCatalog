@@ -1,6 +1,7 @@
 package cinemacatalog;
 
 import com.soselab.vmamvserviceclient.service.ContractAnalyzer;
+import com.soselab.vmamvserviceclient.service.ContractAnalyzer2;
 import com.soselab.vmamvserviceclient.service.ServiceDependencyAnalyzer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +25,8 @@ public class SwaggerConfig {
     ServiceDependencyAnalyzer serviceDependencyAnalyzer;
     @Autowired
     ContractAnalyzer contractAnalyzer;
+    @Autowired
+    ContractAnalyzer2 contractAnalyzer2;
 
     @Value("${spring.application.name}")
     private String appName;
@@ -42,7 +45,7 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage(appName))
                 .paths(PathSelectors.any())
                 .build()
-                .extensions(contractAnalyzer.swaggerExtension(contractPath, testPath + "testng-results.xml", appName))
+                .extensions(contractAnalyzer2.swaggerExtension(contractPath, testPath + "testng-results.xml", appName))
                 .extensions(serviceDependencyAnalyzer.swaggerExtension(appName));
     }
 
