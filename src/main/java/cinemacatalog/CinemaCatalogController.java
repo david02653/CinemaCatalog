@@ -46,14 +46,14 @@ public class CinemaCatalogController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CinemaCatalogController.class);
 	
-	@ApiOperation(value = "測試此伺服器是否成功連線", notes = "成功連線就回傳success")
+/*	@ApiOperation(value = "測試此伺服器是否成功連線", notes = "成功連線就回傳success")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="/", method = RequestMethod.GET)
     public String index() 
     {
     	logger.info("success");
 		return "success";
-    }
+    }*/
 
 /*	@ApiOperation(value = "模擬404錯誤", notes = "會回傳404")
 	@CrossOrigin(origins = "*")
