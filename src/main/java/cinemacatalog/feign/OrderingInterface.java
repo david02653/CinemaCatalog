@@ -22,10 +22,10 @@ public interface OrderingInterface {
     @RequestMapping(value = "/validate/prime-number", method = RequestMethod.GET)
     String checkOddAndEven(@RequestParam("number") Integer number);
 
-    @RequestMapping(value = "/hi", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/hi", method = RequestMethod.GET)
     String hello(@RequestParam("name") String name);
 
     @RequestMapping(value = "/simulateError", method = RequestMethod.GET)
-    String simulateError(@RequestParam("number") Integer number);
+    String simulateError(@RequestParam("number") Integer number);*/
 
 }

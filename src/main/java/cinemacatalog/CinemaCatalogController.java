@@ -24,11 +24,11 @@ public class CinemaCatalogController {
 	NotificationInterface notificationInterface;
 
 
-	@RequestMapping(value="/hi", method = RequestMethod.GET )
+	/*@RequestMapping(value="/hi", method = RequestMethod.GET )
 	public String home(@RequestParam("name") String name) {
 
 		return orderingInterface.hello(name);
-	}
+	}*/
 
 	@FeignRequest(client = OrderingInterface.class, method = "checkOddAndEven", parameterTypes = Integer.class)
 	@RequestMapping(value="/calculate", method = RequestMethod.GET)
@@ -36,10 +36,10 @@ public class CinemaCatalogController {
 		return orderingInterface.checkOddAndEven(number);
 	}
 
-	@RequestMapping(value="/simulateError", method = RequestMethod.GET)
+	/*@RequestMapping(value="/simulateError", method = RequestMethod.GET)
 	public String simulateError(@RequestParam("number") Integer number) {
 		return orderingInterface.simulateError(number);
-	}
+	}*/
 
 
 
@@ -55,7 +55,7 @@ public class CinemaCatalogController {
 		return "success";
     }
 
-	@ApiOperation(value = "模擬404錯誤", notes = "會回傳404")
+/*	@ApiOperation(value = "模擬404錯誤", notes = "會回傳404")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value="/index2", method = RequestMethod.GET)
 	public ResponseEntity<CinemaCatalog> index2()
@@ -82,7 +82,7 @@ public class CinemaCatalogController {
 			e.printStackTrace();
 		}
 		return result;
-	}
+	}*/
 
 
 	@ApiOperation(value = "拿到所有的電影資料", notes = "回傳資料")
