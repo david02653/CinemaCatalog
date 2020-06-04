@@ -119,12 +119,12 @@ public class CinemaCatalogController {
 	@ApiOperation(value = "購買電影", notes = "購買成功就回傳成功")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/orderingMovie", method = RequestMethod.GET)
-    public String orderingMovie(@ApiParam(required = true, name = "ID", value = "電影編號")@RequestParam("moviesID") String moviesID)
+    public String orderingMovie(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID, @ApiParam(required = true, name = "ID", value = "電影編號")@RequestParam("moviesID") String moviesID)
     {
 		String result = "";
 		try {
 			
-			result = orderingInterface.orderingMovie(moviesID);
+			result = orderingInterface.orderingMovie(userID, moviesID);
 			
 			
 		} catch (Exception e) {

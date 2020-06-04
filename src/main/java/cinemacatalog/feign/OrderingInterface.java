@@ -17,7 +17,7 @@ public interface OrderingInterface {
     String getMovieByID(@RequestParam("userID") String userID);
 
     @RequestMapping(value = "/newMovieOrdering", method = RequestMethod.GET)
-    String orderingMovie(@RequestParam("moviesID") String moviesID);
+    String orderingMovie(@RequestParam("userID") String userID, @RequestParam("moviesID") String moviesID);
 
     @RequestMapping(value = "/validate/prime-number", method = RequestMethod.GET)
     String checkOddAndEven(@RequestParam("number") Integer number);
