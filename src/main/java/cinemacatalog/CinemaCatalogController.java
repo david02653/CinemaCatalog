@@ -115,7 +115,7 @@ public class CinemaCatalogController {
     }
 
 
-	@FeignRequest(client = OrderingInterface.class, method = "orderingMovie", parameterTypes = String.class)
+	@FeignRequest(client = OrderingInterface.class, method = "orderingMovie", parameterTypes = {String.class, String.class})
 	@ApiOperation(value = "購買電影", notes = "購買成功就回傳成功")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/orderingMovie", method = RequestMethod.GET)
