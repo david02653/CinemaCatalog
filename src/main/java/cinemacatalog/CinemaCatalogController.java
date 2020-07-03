@@ -161,17 +161,12 @@ public class CinemaCatalogController {
 	public String getSomething(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
 	{
 		String data = "";
-		try {
-
-			data = orderingInterface.getSomething(userID);
 
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		return orderingInterface.getSomething(userID);
 
 
-		return CinemaCatalog.getMovieByID(userID,data);
+
 	}
 
 	
