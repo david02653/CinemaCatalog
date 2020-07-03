@@ -152,6 +152,28 @@ public class CinemaCatalogController {
 		}
 		return result;
 	}
+
+
+	@FeignRequest(client = OrderingInterface.class, method = "getSomething", parameterTypes = String.class)
+	@ApiOperation(value = "拿東西", notes = "拿東西")
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/getSomething", method = RequestMethod.GET)
+	public String getSomething(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
+	{
+		String data = "";
+		try {
+
+			data = orderingInterface.getSomething(userID);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
+		return CinemaCatalog.getMovieByID(userID,data);
+	}
+
 	
 }
 
