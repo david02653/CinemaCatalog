@@ -30,11 +30,11 @@ public class CinemaCatalogController {
 		return orderingInterface.hello(name);
 	}*/
 
-	@FeignRequest(client = OrderingInterface.class, method = "checkOddAndEven", parameterTypes = Integer.class)
+/*	@FeignRequest(client = OrderingInterface.class, method = "checkOddAndEven", parameterTypes = Integer.class)
 	@RequestMapping(value="/calculate", method = RequestMethod.GET)
 	public String checkOddAndEven(@RequestParam("number") Integer number) {
 		return orderingInterface.checkOddAndEven(number);
-	}
+	}*/
 
 	/*@RequestMapping(value="/simulateError", method = RequestMethod.GET)
 	public String simulateError(@RequestParam("number") Integer number) {
