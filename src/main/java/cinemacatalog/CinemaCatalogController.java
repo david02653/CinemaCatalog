@@ -154,7 +154,7 @@ public class CinemaCatalogController {
 	}
 
 
-	@FeignRequest(client = OrderingInterface.class, method = "getSomething", parameterTypes = String.class)
+/*	@FeignRequest(client = OrderingInterface.class, method = "getSomething", parameterTypes = String.class)
 	@ApiOperation(value = "拿東西", notes = "拿東西")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/getSomething", method = RequestMethod.GET)
@@ -162,12 +162,9 @@ public class CinemaCatalogController {
 	{
 		String data = "";
 
-
 		return orderingInterface.getSomething(userID);
 
-
-
-	}
+	}*/
 
 	
 }
