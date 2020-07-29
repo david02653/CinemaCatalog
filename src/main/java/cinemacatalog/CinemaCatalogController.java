@@ -164,7 +164,7 @@ public class CinemaCatalogController {
 	@RequestMapping(value = "/getCinemaCatalogInformation", method = RequestMethod.GET)
 	public String getCinemaCatalogInformation(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID, @ApiParam(required = true, name = "probability", value = "出錯機率") @RequestParam("probability") double probability)
 	{
-		int num = random.nextInt(100000) + 1;
+		int num = random.nextInt(1000) + 1;
 
 		if(num <= (int)(probability * 1000)){
 			return orderingInterface.getCinemaCatalogInformation(userID);
