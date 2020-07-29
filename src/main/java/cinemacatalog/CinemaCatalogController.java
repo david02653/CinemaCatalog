@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Random;
+
 
 @Api(value = "CinemaCatalogController", tags = "與電影相關的所有一切都在這裡")
 @RestController
@@ -22,6 +24,8 @@ public class CinemaCatalogController {
 	OrderingInterface orderingInterface;
 	@Autowired
 	NotificationInterface notificationInterface;
+
+	Random random = new Random();
 
 
 	/*@RequestMapping(value="/hi", method = RequestMethod.GET )
@@ -158,10 +162,17 @@ public class CinemaCatalogController {
 	@ApiOperation(value = "拿資訊", notes = "拿資訊")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/getCinemaCatalogInformation", method = RequestMethod.GET)
-	public String getCinemaCatalogInformation(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID)
+	public String getCinemaCatalogInformation(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID, @ApiParam(required = true, name = "probability", value = "出錯機率") @RequestParam("probability") double probability)
 	{
+		int num = random.nextInt(100000) + 1;
 
-		return orderingInterface.getCinemaCatalogInformation(userID);
+		if(num <= (int)(probability * 1000)){
+			return orderingInterface.getCinemaCatalogInformation(userID);
+		}else{
+			return "success";
+		}
+
+//		return orderingInterface.getCinemaCatalogInformation(userID);
 
 	}
 
