@@ -25,28 +25,6 @@ public class CinemaCatalogController {
 	@Autowired
 	NotificationInterface notificationInterface;
 
-	Random random = new Random();
-
-
-	/*@RequestMapping(value="/hi", method = RequestMethod.GET )
-	public String home(@RequestParam("name") String name) {
-
-		return orderingInterface.hello(name);
-	}*/
-
-/*	@FeignRequest(client = OrderingInterface.class, method = "checkOddAndEven", parameterTypes = Integer.class)
-	@RequestMapping(value="/calculate", method = RequestMethod.GET)
-	public String checkOddAndEven(@RequestParam("number") Integer number) {
-		return orderingInterface.checkOddAndEven(number);
-	}*/
-
-	/*@RequestMapping(value="/simulateError", method = RequestMethod.GET)
-	public String simulateError(@RequestParam("number") Integer number) {
-		return orderingInterface.simulateError(number);
-	}*/
-
-
-
 
 	private static final Logger logger = LoggerFactory.getLogger(CinemaCatalogController.class);
 	
@@ -58,35 +36,6 @@ public class CinemaCatalogController {
     	logger.info("success");
 		return "success";
     }*/
-
-/*	@ApiOperation(value = "模擬404錯誤", notes = "會回傳404")
-	@CrossOrigin(origins = "*")
-	@RequestMapping(value="/index2", method = RequestMethod.GET)
-	public ResponseEntity<CinemaCatalog> index2()
-	{
-
-		return ResponseEntity.notFound().build();
-	}
-
-
-	// 模擬高duration
-	@ApiOperation(value = "測試是否成功連線", notes = "成功連線就回傳success")
-	@CrossOrigin(origins = "*")
-	@RequestMapping(value="/index3", method = RequestMethod.GET)
-	public String index3()
-	{
-
-		String result = "wait success";
-
-
-		long num = (long)(Math.random() * 30);
-		try {
-			Thread.sleep(num);
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}*/
 
 
 	@ApiOperation(value = "拿到所有的電影資料", notes = "回傳資料")
@@ -158,12 +107,14 @@ public class CinemaCatalogController {
 	}
 
 
-	@FeignRequest(client = OrderingInterface.class, method = "getCinemaCatalogInformation", parameterTypes = String.class)
+/*	@FeignRequest(client = OrderingInterface.class, method = "getCinemaCatalogInformation", parameterTypes = String.class)
 	@ApiOperation(value = "拿資訊", notes = "拿資訊")
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/getCinemaCatalogInformation", method = RequestMethod.GET)
 	public String getCinemaCatalogInformation(@ApiParam(required = true, name = "userID", value = "使用者編號") @RequestParam("userID") String userID, @ApiParam(required = true, name = "probability", value = "出錯機率") @RequestParam("probability") double probability)
 	{
+		Random random = new Random();
+
 		int num = random.nextInt(1000) + 1;
 
 		if(num <= (int)(probability * 1000)){
@@ -172,9 +123,7 @@ public class CinemaCatalogController {
 			return "success";
 		}
 
-//		return orderingInterface.getCinemaCatalogInformation(userID);
-
-	}
+	}*/
 
 	
 }

@@ -12,26 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @TargetVersion("0.0.1-SNAPSHOT")
 public interface OrderingInterface {
 
-//    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    String index2();
-
     @RequestMapping(value = "/getMovieFromOrderList", method = RequestMethod.GET)
     String getMovieByID(@RequestParam("userID") String userID);
 
     @RequestMapping(value = "/newMovieOrdering", method = RequestMethod.GET)
     String orderingMovie(@RequestParam("userID") String userID, @RequestParam("moviesID") String moviesID);
 
-    @RequestMapping(value = "/getCinemaCatalogInformation", method = RequestMethod.GET)
-    String getCinemaCatalogInformation(@RequestParam("userID") String userID);
-
-/*    @RequestMapping(value = "/validate/prime-number", method = RequestMethod.GET)
-    String checkOddAndEven(@RequestParam("number") Integer number);*/
-
-
-/*    @RequestMapping(value = "/hi", method = RequestMethod.GET)
-    String hello(@RequestParam("name") String name);
-
-    @RequestMapping(value = "/simulateError", method = RequestMethod.GET)
-    String simulateError(@RequestParam("number") Integer number);*/
+/*    @RequestMapping(value = "/getCinemaCatalogInformation", method = RequestMethod.GET)
+    String getCinemaCatalogInformation(@RequestParam("userID") String userID);*/
 
 }
