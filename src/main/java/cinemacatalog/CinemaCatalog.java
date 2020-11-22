@@ -23,7 +23,7 @@ public class CinemaCatalog {
             
 			System.out.println("MongoDBConnect to database begin");
 			
-            MongoClient mongoClient = MongoClients.create("mongodb://cinema:cinema@140.121.196.23:4118");
+            MongoClient mongoClient = MongoClients.create("mongodb://soselab12:soselab12@140.121.197.130:9028");
             
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
             System.out.println("MongoDBConnect to database successfully");
@@ -66,8 +66,9 @@ public class CinemaCatalog {
 			
 			System.out.println("MongoDBConnect to database begin");
 			
-            MongoClient mongoClient = MongoClients.create("mongodb://cinema:cinema@140.121.196.23:4118");
-            
+//            MongoClient mongoClient = MongoClients.create("mongodb://cinema:cinema@140.121.196.23:4118");
+			MongoClient mongoClient = MongoClients.create("mongodb://soselab12:soselab12@140.121.197.130:9028");
+
             MongoDatabase mongoDatabase = mongoClient.getDatabase("Movies");
             System.out.println("MongoDBConnect to database successfully");
             
@@ -111,7 +112,7 @@ public class CinemaCatalog {
 		String result = "";
 		
 		try {
-			URL url = new URL("http://140.121.196.23:4139/notification/getNotification?userID="+userID);
+			URL url = new URL("http://140.121.197.130:9039/notification/getNotification?userID="+userID);
 			org.jsoup.nodes.Document xmlDoc =  Jsoup.parse(url, 3000);
 			result = xmlDoc.select("body").get(0).text();
 		} catch (MalformedURLException e) {
@@ -127,7 +128,7 @@ public class CinemaCatalog {
 	{
 		String result = "";
 		try {
-			URL url = new URL("http://140.121.196.23:4139/ordering/newMovieOrdering?moviesID="+moviesID);
+			URL url = new URL("http://140.121.197.130:9039/ordering/newMovieOrdering?moviesID="+moviesID);
 			URLConnection urlConnection = url.openConnection();
 			
 			
